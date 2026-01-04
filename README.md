@@ -1,16 +1,25 @@
-# freshcheck
+# FreshCheck (Phase 1) — Food Freshness Timer
 
-A new Flutter project.
+FreshCheck helps you track food freshness after opening an item (milk, cheese, chicken, leftovers, or custom).
 
-## Getting Started
+## Features (Phase 1)
+- One screen “Freshness Calculator”
+- Choose item type (preset safe days)
+- Pick opened date
+- Shows expiry date and live countdown
+- Warning color bar:
+    - Green = safe
+    - Orange = near expiry
+    - Red = expired
 
-This project is a starting point for a Flutter application.
+## Preset Rules (days)
+- Milk: 7
+- Cheese: 10
+- Chicken: 2
+- Leftovers: 3
+- Custom: user input
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Run the app
+```bash
+flutter pub get
+flutter run
