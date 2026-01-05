@@ -1,15 +1,15 @@
 <?php
 // backend/api/index.php
 
-require_once __DIR__ . '/../config/db.php';
-
-header('Content-Type: application/json; charset=utf-8');
-
-// CORS (useful later when Flutter calls online backend)
+// CORS (MUST be first output)
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { exit; }
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
+
+header('Content-Type: application/json; charset=utf-8');
+
+require_once __DIR__ . '/../config/db.php';
 
 function send($code, $data) {
   http_response_code($code);
@@ -23,10 +23,9 @@ function readJson() {
   return is_array($data) ? $data : [];
 }
 
-// ----- Simple routing -----
-// We want:
-// /api/index.php/items
-// /api/index.php/items/{id}
+// ----- Routing -----
+// /items
+// /items/{id}
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -41,7 +40,7 @@ $parts = $path === '' ? [] : explode('/', $path);
 $resource = $parts[0] ?? '';
 $id = isset($parts[1]) ? intval($parts[1]) : null;
 
-// For now (no auth yet), we use a fixed user_id = 1
+// For now (no auth yet), fixed user_id = 1
 $userId = 1;
 
 try {
@@ -54,7 +53,6 @@ try {
       "routes" => ["GET /items", "POST /items", "PUT /items/{id}", "DELETE /items/{id}"]
     ]);
   }
-
 
   if ($resource !== 'items') {
     send(404, ["error" => "Not found"]);
