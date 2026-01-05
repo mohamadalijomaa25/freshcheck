@@ -48,8 +48,13 @@ try {
   $pdo = db();
 
   if ($resource === '') {
-    send(200, ["message" => "FreshCheck API is running", "routes" => ["GET /items", "POST /items", "PUT /items/{id}", "DELETE /items/{id}"]]);
+    send(200, [
+      "status" => "ok",
+      "message" => "FreshCheck API is running",
+      "routes" => ["GET /items", "POST /items", "PUT /items/{id}", "DELETE /items/{id}"]
+    ]);
   }
+
 
   if ($resource !== 'items') {
     send(404, ["error" => "Not found"]);
