@@ -1,3 +1,4 @@
+````md
 # FreshCheck — Food Freshness Timer (Flutter + PHP API + Online MySQL)
 
 FreshCheck helps users track when food was opened and how many **safe days** remain.
@@ -84,9 +85,9 @@ It includes:
 
 - **API Home:** https://freshcheck-m2q0.onrender.com  
   Returns JSON like:
-
+  ```json
   {"status":"ok","message":"FreshCheck API is running"}
-
+````
 
 * **API Base URL (used by Flutter):**
   [https://freshcheck-m2q0.onrender.com/api/index.php](https://freshcheck-m2q0.onrender.com/api/index.php)
@@ -120,23 +121,24 @@ Tables:
 
 ## 📂 Project Structure
 
+```text
 freshcheck/
-lib/
-main.dart
-fridge_list_screen.dart
-add_item_screen.dart
+  lib/
+    main.dart
+    fridge_list_screen.dart
+    add_item_screen.dart
 
-backend/
-api/
-index.php
-config/
-db.php
-sql/
-schema.sql
-Dockerfile
-.htaccess
-index.php
-
+  backend/
+    api/
+      index.php
+    config/
+      db.php
+    sql/
+      schema.sql
+    Dockerfile
+    .htaccess
+    index.php
+```
 
 ---
 
@@ -163,16 +165,16 @@ flutter run
 
 > Final submission uses the online Render link. Local is only for testing.
 
-Copy backend folder to:
+1. Copy backend folder to:
 
 * `C:\xampp\htdocs\freshcheck_backend\`
 
-Start XAMPP:
+2. Start XAMPP:
 
 * Apache ✅
 * MySQL ✅
 
-Open:
+3. Open:
 
 * [http://localhost/freshcheck_backend/api/index.php](http://localhost/freshcheck_backend/api/index.php)
 
@@ -184,4 +186,30 @@ SQL file path:
 
 * `backend/sql/schema.sql`
 
-This file includes table creation statements for `users` and `
+This file includes table creation statements for `users` and `items`.
+
+---
+
+## ✅ Submission Info
+
+* **GitHub repo:
+  ** [https://github.com/mohamadalijomaa25/freshcheck.git](https://github.com/mohamadalijomaa25/freshcheck.git)
+* **Backend URL:** [https://freshcheck-m2q0.onrender.com](https://freshcheck-m2q0.onrender.com)
+* **API Base URL:
+  ** [https://freshcheck-m2q0.onrender.com/api/index.php](https://freshcheck-m2q0.onrender.com/api/index.php)
+* **SQL file:** `backend/sql/schema.sql`
+* **Backend code:** `backend/`
+
+---
+
+## 🔮 Future Improvements
+
+* Add authentication (signup/login) and user-specific items
+* Photo upload instead of URL
+* Notifications for expiring items
+* Filtering/sorting (Expired / Soon / Fresh)
+
+```
+
+If you still see text “escaping” in GitHub, tell me what editor you pasted into (Android Studio / GitHub web editor), and I’ll tell you the exact safe paste method.
+```
